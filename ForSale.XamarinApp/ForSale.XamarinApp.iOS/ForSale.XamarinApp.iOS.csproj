@@ -99,6 +99,7 @@
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Implementations\Localize.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -212,6 +213,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ForSale.ComunDll\ForSale.ComunDll.csproj">
+      <Project>{92627F0D-3321-4358-B380-490964877319}</Project>
+      <Name>ForSale.ComunDll</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ForSale.XamarinApp\ForSale.XamarinApp.csproj">
       <Project>{23BBC45B-8AB4-4ABA-8D22-6C42B9B4462D}</Project>
       <Name>ForSale.XamarinApp</Name>
