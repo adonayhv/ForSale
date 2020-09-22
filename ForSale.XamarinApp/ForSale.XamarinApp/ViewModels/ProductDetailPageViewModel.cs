@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using ForSale.ComunDll.Entidades;
+using ForSale.ComunDll.Responses;
 using ForSale.XamarinApp.Helpers;
 using Prism.Navigation;
 
@@ -8,7 +9,7 @@ namespace ForSale.XamarinApp.ViewModels
 {
     public class ProductDetailPageViewModel : ViewModelBase
     {
-        private Product _product;
+        private ProductResponse _product;
         private ObservableCollection<ProductImage> _images;
 
 
@@ -23,7 +24,7 @@ namespace ForSale.XamarinApp.ViewModels
             set => SetProperty(ref _images, value);
         }
 
-        public Product Product
+        public ProductResponse Product
         {
             get => _product;
             set => SetProperty(ref _product, value);
@@ -35,7 +36,7 @@ namespace ForSale.XamarinApp.ViewModels
 
             if (parameters.ContainsKey("product"))
             {
-                Product = parameters.GetValue<Product>("product");
+                Product = parameters.GetValue<ProductResponse>("product");
                 Title = Product.Name;
                 Images = new ObservableCollection<ProductImage>(Product.ProductImages);
 

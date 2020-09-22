@@ -1,12 +1,10 @@
-﻿using ForSale.ComunDll.Entidades;
-using ForSale.ComunDll.Responses;
+﻿using ForSale.ComunDll.Responses;
 using ForSale.ComunDll.Services;
+
 using ForSale.XamarinApp.Helpers;
 using ForSale.XamarinApp.ItemViewModels;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -22,7 +20,7 @@ namespace ForSale.XamarinApp.ViewModels
         private bool _isRunning;
 
         private string _search;
-        private List<Product> _myProducts;
+        private List<ProductResponse> _myProducts;
         private DelegateCommand _searchCommand;
 
 
@@ -73,7 +71,7 @@ namespace ForSale.XamarinApp.ViewModels
 
             IsRunning = true;
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.GetListAsync<Product>(
+            Response response = await _apiService.GetListAsync<ProductResponse>(
                 url,
                 "/api",
                 "/Products");
@@ -84,7 +82,7 @@ namespace ForSale.XamarinApp.ViewModels
                 return;
             }
 
-            _myProducts = (List<Product>)response.Result;
+            _myProducts = (List<ProductResponse>)response.Result;
             ShowProducts();
         }
 

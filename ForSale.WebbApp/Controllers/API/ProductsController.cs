@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ForSale.WebbApp.Data;
+using ForSale.WebbApp.Data.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,15 +21,19 @@ namespace ForSale.WebbApp.Controllers.API
         {
             _context = context;
         }
-
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
-            return Ok(_context.Products
+            List<Product> products = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.ProductImages)
-                .OrderBy(p=>p.Name)
-                .Where(p => p.IsActive));
+                .Include(p => p.Qualifications)
+                .Where(p => p.IsActive)
+                .ToListAsync();
+            return Ok(products);
         }
+
+      
+
     }
 }

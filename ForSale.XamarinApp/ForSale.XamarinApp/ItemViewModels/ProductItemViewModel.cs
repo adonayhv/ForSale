@@ -1,13 +1,13 @@
 ﻿using System;
 using ForSale.ComunDll.Entidades;
-
+using ForSale.ComunDll.Responses;
 using ForSale.XamarinApp.Views;
 using Prism.Commands;
 using Prism.Navigation;
 
 namespace ForSale.XamarinApp.ItemViewModels
 {
-    public class ProductItemViewModel:Product
+    public class ProductItemViewModel:ProductResponse
     {
 
         private readonly INavigationService _navigationService;

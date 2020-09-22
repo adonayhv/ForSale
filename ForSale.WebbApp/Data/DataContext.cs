@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ForSale.WebbApp.Data.Entidades;
@@ -26,7 +25,7 @@ namespace ForSale.WebbApp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
 
-
+        public DbSet<Qualification> Qualifications { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

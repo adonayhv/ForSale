@@ -1,9 +1,9 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Threading.Tasks;
 
 using ForSale.ComunDll.Entidades;
 using ForSale.WebbApp.Data;
+using ForSale.WebbApp.Data.Entidades;
 using ForSale.WebbApp.Models;
 
 namespace ForSale.WebbApp.Helpers

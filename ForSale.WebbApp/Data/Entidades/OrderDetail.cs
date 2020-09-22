@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ForSale.ComunDll.Entidades
+namespace ForSale.WebbApp.Data.Entidades
 {
     public class OrderDetail
     {

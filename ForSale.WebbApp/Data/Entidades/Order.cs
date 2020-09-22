@@ -1,6 +1,4 @@
-﻿using ForSale.ComunDll.Entidades;
-using ForSale.ComunDll.Enums;
-
+﻿using ForSale.ComunDll.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

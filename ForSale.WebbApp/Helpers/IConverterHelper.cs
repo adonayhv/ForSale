@@ -1,6 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ForSale.ComunDll.Entidades;
+using ForSale.WebbApp.Data.Entidades;
 using ForSale.WebbApp.Models;
 
 namespace ForSale.WebbApp.Helpers
