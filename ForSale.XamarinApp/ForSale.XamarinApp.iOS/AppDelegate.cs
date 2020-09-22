@@ -28,7 +28,7 @@ namespace ForSale.XamarinApp.iOS
 
             new SfBusyIndicatorRenderer();
             new SfRotatorRenderer();
-
+            SfTextInputLayoutRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);

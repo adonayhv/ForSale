@@ -1,6 +1,7 @@
 ﻿using ForSale.ComunDll.Entidades;
 using ForSale.ComunDll.Responses;
 using ForSale.ComunDll.Services;
+using ForSale.XamarinApp.Helpers;
 using ForSale.XamarinApp.ItemViewModels;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -47,7 +48,7 @@ namespace ForSale.XamarinApp.ViewModels
         {
             _navigationService = navigationService;
             _apiService = apiService;
-            Title = "Products";
+               Title = Languages.Products;
             LoadProductsAsync();
         }
         public bool IsRunning
@@ -66,7 +67,7 @@ namespace ForSale.XamarinApp.ViewModels
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ConnectionError, Languages.Accept);
                 return;
             }
 
@@ -79,10 +80,7 @@ namespace ForSale.XamarinApp.ViewModels
             IsRunning = false;
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert(
-                    "Error",
-                    response.Message,
-                    "Accept");
+                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
 

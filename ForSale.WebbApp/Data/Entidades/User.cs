@@ -42,10 +42,10 @@ namespace ForSale.WebbApp.Data.Entidades
             {
                 if (string.IsNullOrEmpty(this.ImageId))
                 {
-                    return "https://localhost:4689/images/noimage.png";
+                    return "http://forsaleon.azurewebsites.net/images/noimage.png";
                 }
 
-                return $"https://localhost:4689/{ImageId.Substring(1)}";
+                return $"http://forsaleon.azurewebsites.net/{ImageId.Substring(1)}";
             }
         }
         [Display(Name = "User Type")]

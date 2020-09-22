@@ -1,4 +1,10 @@
-﻿[assembly: Dependency(typeof(ForSale.XamarinApp.Droid.Implementations.Localize))]
+﻿using ForSale.ComunDll.Helpers;
+using ForSale.XamarinApp.Helpers;
+using System.Globalization;
+using System.Threading;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(ForSale.XamarinApp.Droid.Implementations.Localize))]
 
 
 namespace ForSale.XamarinApp.Droid.Implementations

@@ -126,4 +126,80 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="SearchProduct" xml:space="preserve">
+    <value>Search a product...&lt;/</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="IsStarred" xml:space="preserve">
+    <value>Is Starred</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Add to cart</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ModifyUser" xml:space="preserve">
+    <value>Modify user</value>
+  </data>
+  <data name="ShowPurchaseHistory" xml:space="preserve">
+    <value>Show purchase history</value>
+  </data>
+  <data name="ShowShoppingCar" xml:space="preserve">
+    <value>Show shopping car</value>
+  </data>
+<data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailPlaceHolder" xml:space="preserve">
+    <value>Enter your email...</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>You must enter a valid email.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordPlaceHolder" xml:space="preserve">
+    <value>Enter your password...</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>You must enter your password.</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register New User</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Email or password wrong</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+
+
+
+
 </root>

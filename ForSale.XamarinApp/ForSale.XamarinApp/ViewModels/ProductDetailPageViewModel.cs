@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using ForSale.ComunDll.Entidades;
+using ForSale.XamarinApp.Helpers;
 using Prism.Navigation;
 
 namespace ForSale.XamarinApp.ViewModels
@@ -13,7 +14,7 @@ namespace ForSale.XamarinApp.ViewModels
 
         public ProductDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Product";
+           Title = Languages.Product;
         }
 
         public ObservableCollection<ProductImage> Images
