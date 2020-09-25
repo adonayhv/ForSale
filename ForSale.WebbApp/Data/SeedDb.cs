@@ -77,6 +77,8 @@ namespace ForSale.WebbApp.Data
                 //string path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images", $"{image}.png");
                 //Guid imageId = await _blobHelper.UploadBlobAsync(path, "products");
                 product.ProductImages.Add(new ProductImage { ImageId = null });
+
+
             }
 
             _context.Products.Add(product);
@@ -113,10 +115,10 @@ namespace ForSale.WebbApp.Data
         private async Task AddCategoryAsync(string name)
         {
             //string path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images", $"{name}.png");
-            //Guid imageId = await _imageHelper.UploadImageAsync(path, "categories");
+            //Guid imageId = await _blobHelper.UploadBlobAsync(path, "categories");
             _context.Categories.Add(new Category { Name = name, ImageId = null });
 
-
+           
 
         }
 

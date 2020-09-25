@@ -12,6 +12,7 @@ namespace ForSale.WebbApp.Helpers
         IEnumerable<SelectListItem> GetComboDepartments(int countryId);
 
         IEnumerable<SelectListItem> GetComboCities(int departmentId);
+        IEnumerable<SelectListItem> GetOrderStatuses();
 
     }
 }

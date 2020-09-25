@@ -7,7 +7,8 @@ namespace ForSale.ComunDll.Enums
         Pending,
         Spreading,
         Sent,
-        Confirmed
+        Confirmed,
+        Cancelled
 
     }
 }

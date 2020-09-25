@@ -11,6 +11,7 @@ namespace ForSale.ComunDll.Entidades
 
         [MaxLength(50)]
         [Required]
+        [Display(Name = "City")]
         public string Name { get; set; }
 
 

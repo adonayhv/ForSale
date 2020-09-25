@@ -9,6 +9,7 @@ using ForSale.WebbApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Vereyon.Web;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,15 +21,17 @@ namespace ForSale.WebbApp.Controllers
     {
         private readonly DataContext _context;
         private readonly IConverterHelper _converterHelper;
+        private readonly IFlashMessage _flashMessage;
         private readonly IImageHelper _imageHelper;
         
 
 
-        public CategoriesController(DataContext context, IImageHelper ImageHelper, IConverterHelper ConverterHelper)
+        public CategoriesController(DataContext context, IImageHelper ImageHelper, IConverterHelper ConverterHelper, IFlashMessage flashMessage)
         {
             _context = context;
             _imageHelper = ImageHelper;
             _converterHelper = ConverterHelper;
+            _flashMessage = flashMessage;
         }
 
         public IImageHelper ImageHelper { get; }
@@ -159,6 +162,7 @@ namespace ForSale.WebbApp.Controllers
             {
                 _context.Categories.Remove(category);
                 await _context.SaveChangesAsync();
+                _flashMessage.Confirmation("The category was deleted.");
             }
             catch (Exception ex)
             {

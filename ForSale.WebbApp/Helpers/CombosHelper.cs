@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ForSale.ComunDll.Entidades;
+using ForSale.ComunDll.Enums;
 using ForSale.WebbApp.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -104,6 +105,17 @@ namespace ForSale.WebbApp.Helpers
             });
 
             return list;
+        }
+        public IEnumerable<SelectListItem> GetOrderStatuses()
+        {
+            return new List<SelectListItem>
+    {
+        new SelectListItem { Value = "0", Text = OrderStatus.Pending.ToString() },
+        new SelectListItem { Value = "1", Text = OrderStatus.Spreading.ToString() },
+        new SelectListItem { Value = "2", Text = OrderStatus.Sent.ToString() },
+        new SelectListItem { Value = "3", Text = OrderStatus.Confirmed.ToString() },
+        new SelectListItem { Value = "4", Text = OrderStatus.Cancelled.ToString() }
+    };
         }
 
     }
