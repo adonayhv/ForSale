@@ -13,6 +13,7 @@ namespace ForSale.ComunDll.Responses
         public float Score { get; set; }
 
         public string Remarks { get; set; }
+        public DateTime DateLocal => Date.ToLocalTime();
     }
 
 }

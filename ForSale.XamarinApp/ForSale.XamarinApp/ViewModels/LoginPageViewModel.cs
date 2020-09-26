@@ -25,6 +25,7 @@ namespace ForSale.XamarinApp.ViewModels
         private DelegateCommand _forgotPasswordCommand;
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
+        private string _pageReturn;
 
         public LoginPageViewModel(INavigationService navigationService, IApiService apiService) 
             : base(navigationService)
@@ -35,7 +36,22 @@ namespace ForSale.XamarinApp.ViewModels
             _apiService = apiService;
         }
 
-        public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(LoginAsync));
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            if (parameters.ContainsKey("pageReturn"))
+            {
+                _pageReturn = parameters.GetValue<string>("pageReturn");
+            }
+        }
+
+
+
+
+
+
+
+public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(LoginAsync));
 
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
 
@@ -112,12 +128,20 @@ namespace ForSale.XamarinApp.ViewModels
             TokenResponse token = (TokenResponse)response.Result;
             Settings.Token = JsonConvert.SerializeObject(token);
             Settings.IsLogin = true;
-
+              Password = string.Empty;
             IsRunning = false;
             IsEnabled = true;
 
-            await _navigationService.NavigateAsync($"/{nameof(OnSaleMasterDetailPage)}/NavigationPage/{nameof(ProductsPage)}");
-            Password = string.Empty;
+            if (string.IsNullOrEmpty(_pageReturn))
+            {
+                await _navigationService.NavigateAsync($"/{nameof(OnSaleMasterDetailPage)}/NavigationPage/{nameof(ProductsPage)}");
+            }
+            else
+            {
+                await _navigationService.NavigateAsync($"/{nameof(OnSaleMasterDetailPage)}/NavigationPage/{_pageReturn}");
+            }
+
+
 
         }
 
@@ -126,9 +150,9 @@ namespace ForSale.XamarinApp.ViewModels
             //TODO: Pending
         }
 
-        private void RegisterAsync()
+        private async void RegisterAsync()
         {
-            //TODO: Pending
+            await _navigationService.NavigateAsync(nameof(RegisterPage));
         }
     }
 

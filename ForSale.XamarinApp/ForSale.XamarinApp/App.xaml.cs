@@ -7,6 +7,8 @@ using Xamarin.Essentials.Implementation;
 using Xamarin.Forms;
 using ForSale.ComunDll.Services;
 using Syncfusion.Licensing;
+using ForSale.XamarinApp.Helpers;
+using ForSale.ComunDll.Helpers;
 //using ForSale.Dll.Entidades;
 
 namespace ForSale.XamarinApp
@@ -33,6 +35,8 @@ namespace ForSale.XamarinApp
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
             containerRegistry.Register<IApiService, ApiService>();
+            containerRegistry.Register<IRegexHelper, RegexHelper>();
+            containerRegistry.Register<IFilesHelper, FilesHelper>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
@@ -45,6 +49,11 @@ namespace ForSale.XamarinApp
             containerRegistry.RegisterForNavigation<ShowCarPage, ShowCarPageViewModel>();
             containerRegistry.RegisterForNavigation<ShowHistoryPage, ShowHistoryPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
+            containerRegistry.RegisterForNavigation<QualificationsPage, QualificationsPageViewModel>();
+            containerRegistry.RegisterForNavigation<QualificationDetailPage, QualificationDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<ProductTabbedPage, ProductTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddQualificationPage, AddQualificationPageViewModel>();
+            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
         }
     }
 }

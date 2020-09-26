@@ -1,7 +1,9 @@
 ﻿using System;
 using ForSale.ComunDll.Entidades;
+using ForSale.ComunDll.Helpers;
 using ForSale.ComunDll.Responses;
 using ForSale.XamarinApp.Views;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
 
@@ -26,8 +28,8 @@ namespace ForSale.XamarinApp.ItemViewModels
     {
         { "product", this }
     };
-
-            await _navigationService.NavigateAsync(nameof(ProductDetailPage), parameters);
+            Settings.Product = JsonConvert.SerializeObject(this);
+            await _navigationService.NavigateAsync(nameof(ProductTabbedPage), parameters);
         }
 
     }

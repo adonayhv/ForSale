@@ -202,6 +202,9 @@
     <PackageReference Include="Syncfusion.Xamarin.Core">
       <Version>18.2.0.58</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRating">
+      <Version>18.2.0.59</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
@@ -254,6 +257,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\onsale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_add_circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

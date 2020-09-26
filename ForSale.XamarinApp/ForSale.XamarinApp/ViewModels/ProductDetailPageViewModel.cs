@@ -15,7 +15,7 @@ namespace ForSale.XamarinApp.ViewModels
 
         public ProductDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-           Title = Languages.Product;
+            Title = Languages.Details;
         }
 
         public ObservableCollection<ProductImage> Images
