@@ -47,4 +47,5 @@
   <ItemGroup>
     <ProjectReference Include="..\ForSale.ComunDll\ForSale.ComunDll.csproj" />
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

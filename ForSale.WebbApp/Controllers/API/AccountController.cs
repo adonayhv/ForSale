@@ -31,13 +31,13 @@ namespace ForSale.WebbApp.Controllers.API
     {
         private readonly IUserHelper _userHelper;
         private readonly IConfiguration _configuration;
-        private readonly ImageHelper _imageHelper;
+        private readonly IImageHelper _imageHelper;
         private readonly IMailHelper _mailHelper;
         private readonly DataContext _context;
 
         public AccountController(IUserHelper userHelper, 
              IConfiguration configuration, 
-             ImageHelper imageHelper,
+            IImageHelper imageHelper,
              IMailHelper mailHelper,
              DataContext context)
         {
@@ -49,7 +49,7 @@ namespace ForSale.WebbApp.Controllers.API
         }
 
         [HttpPost]
-        [Route("CreateToken")]
+      [Route("CreateToken")]
         public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
         {
             if (ModelState.IsValid)
