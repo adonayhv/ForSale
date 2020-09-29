@@ -3,20 +3,27 @@ using System.Collections.ObjectModel;
 using ForSale.ComunDll.Entidades;
 using ForSale.ComunDll.Responses;
 using ForSale.XamarinApp.Helpers;
+using ForSale.XamarinApp.Views;
+using Prism.Commands;
 using Prism.Navigation;
 
 namespace ForSale.XamarinApp.ViewModels
 {
     public class ProductDetailPageViewModel : ViewModelBase
     {
+        private readonly INavigationService _navigationService;
         private ProductResponse _product;
         private ObservableCollection<ProductImage> _images;
+        private DelegateCommand _addToCartCommand;
 
-
-        public ProductDetailPageViewModel(INavigationService navigationService) : base(navigationService)
+        public ProductDetailPageViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
+            _navigationService = navigationService;
             Title = Languages.Details;
         }
+
+        public DelegateCommand AddToCartCommand => _addToCartCommand ?? (_addToCartCommand = new DelegateCommand(AddToCartAsycn));
 
         public ObservableCollection<ProductImage> Images
         {
@@ -37,12 +44,18 @@ namespace ForSale.XamarinApp.ViewModels
             if (parameters.ContainsKey("product"))
             {
                 Product = parameters.GetValue<ProductResponse>("product");
-                Title = Product.Name;
                 Images = new ObservableCollection<ProductImage>(Product.ProductImages);
-
             }
-
         }
 
+        private async void AddToCartAsycn()
+        {
+            NavigationParameters parameters = new NavigationParameters
+            {
+                { "product", Product }
+            };
+
+            await _navigationService.NavigateAsync(nameof(AddToCartPage), parameters);
+        }
     }
 }

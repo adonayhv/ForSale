@@ -12,6 +12,10 @@
              x:Class="ForSale.XamarinApp.Views.ProductsPage"
              BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding CartNumber}" Command="{Binding ShowCartCommand}"/>
+    </ContentPage.ToolbarItems>
+
 
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"

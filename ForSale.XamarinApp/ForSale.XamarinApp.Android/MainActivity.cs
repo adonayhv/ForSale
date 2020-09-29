@@ -26,7 +26,7 @@ namespace ForSale.XamarinApp.Droid
             new SfBusyIndicatorRenderer();
             new SfRotatorRenderer();
 
-
+            //new SfNumericTextBoxRenderer();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             LoadApplication(new App(new AndroidInitializer()));
         }

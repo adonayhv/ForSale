@@ -1,8 +1,12 @@
-﻿using ForSale.ComunDll.Responses;
+﻿using ForSale.ComunDll.Helpers;
+using ForSale.ComunDll.Models;
+using ForSale.ComunDll.Responses;
 using ForSale.ComunDll.Services;
 
 using ForSale.XamarinApp.Helpers;
 using ForSale.XamarinApp.ItemViewModels;
+using ForSale.XamarinApp.Views;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
@@ -22,6 +26,9 @@ namespace ForSale.XamarinApp.ViewModels
         private string _search;
         private List<ProductResponse> _myProducts;
         private DelegateCommand _searchCommand;
+     
+        private int _cartNumber;
+        private DelegateCommand _showCartCommand;
 
 
 
@@ -47,8 +54,34 @@ namespace ForSale.XamarinApp.ViewModels
             _navigationService = navigationService;
             _apiService = apiService;
                Title = Languages.Products;
+            LoadCartNumber();
+
             LoadProductsAsync();
         }
+        public DelegateCommand ShowCartCommand => _showCartCommand ?? (_showCartCommand = new DelegateCommand(ShowCartAsync));
+
+        public int CartNumber
+        {
+            get => _cartNumber;
+            set => SetProperty(ref _cartNumber, value);
+        }
+        private void LoadCartNumber()
+        {
+            List<OrderDetail> orderDetails = JsonConvert.DeserializeObject<List<OrderDetail>>(Settings.OrderDetails);
+            if (orderDetails == null)
+            {
+                orderDetails = new List<OrderDetail>();
+                Settings.OrderDetails = JsonConvert.SerializeObject(orderDetails);
+            }
+
+            CartNumber = orderDetails.Count;
+        }
+
+        private async void ShowCartAsync()
+        {
+            await _navigationService.NavigateAsync(nameof(ShowCarPage));
+        }
+
         public bool IsRunning
         {
             get => _isRunning;
