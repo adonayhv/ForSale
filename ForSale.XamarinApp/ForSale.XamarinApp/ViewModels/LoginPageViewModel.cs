@@ -145,9 +145,9 @@ public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new Del
 
         }
 
-        private void ForgotPasswordAsync()
+        private async void ForgotPasswordAsync()
         {
-            //TODO: Pending
+            await _navigationService.NavigateAsync(nameof(RecoverPasswordPage));
         }
 
         private async void RegisterAsync()

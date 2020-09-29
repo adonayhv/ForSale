@@ -37,7 +37,7 @@ namespace ForSale.WebbApp.Controllers.API
 
         public AccountController(IUserHelper userHelper, 
              IConfiguration configuration, 
-            IImageHelper imageHelper,
+             IImageHelper imageHelper,
              IMailHelper mailHelper,
              DataContext context)
         {

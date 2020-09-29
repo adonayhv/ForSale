@@ -354,6 +354,73 @@
   </data>
 
 
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Recuperar Contraseña</value>
+  </data>
+  <data name="RecoverPasswordMessage" xml:space="preserve">
+    <value>Se envió un correo electrónico para cambiar su contraseña.</value>
+  </data>
 
+<data name="ChangePassword" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ChangeUserMessage" xml:space="preserve">
+    <value>Usuario actualizado.</value>
+  </data>
+
+
+ <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirmación de contraseña nueva</value>
+  </data>
+  <data name="ConfirmNewPasswordError1" xml:space="preserve">
+    <value>Debes ingresar una confirmación para la nueva contraseña.</value>
+  </data>
+  <data name="ConfirmNewPasswordError2" xml:space="preserve">
+    <value>La nueva contraseña y la confirmación no concuerdan.</value>
+  </data>
+  <data name="ConfirmNewPasswordPlaceHolder" xml:space="preserve">
+    <value>Ingrese la confirmación para la contraseña nueva...</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="CurrentPasswordError" xml:space="preserve">
+    <value>Debes ingresar tu contraseña actual.</value>
+  </data>
+  <data name="CurrentPasswordPlaceHolder" xml:space="preserve">
+    <value>Ingresa tu contraseña actual...</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="NewPasswordError" xml:space="preserve">
+    <value>Debes ingresar una nueva cotraseña.</value>
+  </data>
+  <data name="NewPasswordPlaceHolder" xml:space="preserve">
+    <value>Ingrese la contraseña nueva...</value>
+  </data>
+  <data name="Error005" xml:space="preserve">
+    <value>La contraseña actual es incorrecta.</value>
+  </data>
+  <data name="ChangePassworrdMessage" xml:space="preserve">
+    <value>La contraseña se cambió con éxito.</value>
+  </data>
+
+
+ <data name="Quantity" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="QuantityError" xml:space="preserve">
+    <value>Debes ingresar una cantidad.</value>
+  </data>
+  <data name="QuantityPlaceHolder" xml:space="preserve">
+    <value>Ingresa la cantidad del producto...</value>
+  </data>
+  <data name="AddToCartMessage" xml:space="preserve">
+    <value>El producto fue agregado al carro de compras con éxito.</value>
+  </data>
+  <data name="ProductExistInOrder" xml:space="preserve">
+    <value>El producto ya existe en la orden. Puede modificar el pedido en 'Ver carro de compras'.</value>
+  </data>
 
 </root>
