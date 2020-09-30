@@ -250,6 +250,7 @@ namespace ForSale.XamarinApp.Helpers
 
         public static string DeliveryAddressPlaceHolder => Resource.DeliveryAddressPlaceHolder;
 
+       
 
 
 

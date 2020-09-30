@@ -30,52 +30,57 @@ namespace ForSale.WebbApp.Controllers.API
                 _userHelper = userHelper;
             }
 
-            [HttpPost]
-            public async Task<IActionResult> PostOrder([FromBody] OrderResponse request)
+        [HttpPost]
+        public async Task<IActionResult> PostOrder([FromBody] OrderResponse request)
+        {
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest();
-                }
-
-                string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-                User user = await _userHelper.GetUserAsync(email);
-                if (user == null)
-                {
-                    return NotFound("Error001");
-                }
-
-                Order order = new Order
-                {
-                    Date = DateTime.UtcNow,
-                    OrderDetails = new List<OrderDetail>(),
-                    OrderStatus = OrderStatus.Pending,
-                    PaymentMethod = request.PaymentMethod,
-                    Remarks = request.Remarks,
-                    User = user
-                };
-
-                foreach (OrderDetailResponse item in request.OrderDetails)
-                {
-                    Product product = await _context.Products.FindAsync(item.Product.Id);
-                    if (product == null)
-                    {
-                        return NotFound("Error002");
-                    }
-
-                    order.OrderDetails.Add(new OrderDetail
-                    {
-                        Price = product.Price,
-                        Product = product,
-                        Quantity = item.Quantity,
-                        Remarks = item.Remarks
-                    });
-                }
-
-                _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
-                return Ok(order);
+                return BadRequest();
             }
+
+            string email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            User user = await _userHelper.GetUserAsync(email);
+            if (user == null)
+            {
+                return NotFound("Error001");
+            }
+
+            Order order = new Order
+            {
+                Date = DateTime.UtcNow,
+                OrderDetails = new List<OrderDetail>(),
+                OrderStatus = OrderStatus.Pending,
+                PaymentMethod = request.PaymentMethod,
+                Remarks = request.Remarks,
+                User = user
+            };
+
+            foreach (OrderDetailResponse item in request.OrderDetails)
+            {
+                Product product = await _context.Products.FindAsync(item.Product.Id);
+                if (product == null)
+                {
+                    return NotFound("Error002");
+                }
+
+                order.OrderDetails.Add(new OrderDetail
+                {
+                    Price = product.Price,
+                    Product = product,
+                    Quantity = item.Quantity,
+                    Remarks = item.Remarks
+                });
+            }
+
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+            return Ok(order);
+        }
+
+
+
+
+
         [HttpGet]
         public async Task<IActionResult> GetOrders()
         {

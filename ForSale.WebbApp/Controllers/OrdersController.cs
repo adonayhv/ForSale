@@ -32,6 +32,7 @@ namespace ForSale.WebbApp.Controllers
                 .Include(p => p.OrderDetails)
                 .ToListAsync());
         }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,6 +57,7 @@ namespace ForSale.WebbApp.Controllers
 
             return View(order);
         }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,8 +119,5 @@ namespace ForSale.WebbApp.Controllers
                 default: return OrderStatus.Cancelled;
             }
         }
-
-
     }
-
 }

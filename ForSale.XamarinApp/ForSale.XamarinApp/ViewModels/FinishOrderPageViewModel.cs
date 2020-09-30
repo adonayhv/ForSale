@@ -142,7 +142,7 @@ namespace ForSale.XamarinApp.ViewModels
                 PaymentMethod = ToPaymentMethod(PaymentMethod),
                 Remarks = Remarks
             };
-
+            //aca es el problema
             Response response = await _apiService.PostAsync(url, "api", "/Orders", request, _token.Token);
             IsRunning = false;
             IsEnabled = true;
