@@ -30,9 +30,22 @@ namespace ForSale.XamarinApp.ViewModels
         private int _cartNumber;
         private DelegateCommand _showCartCommand;
 
+        public ProductsPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
+        {
+            _navigationService = navigationService;
+            _apiService = apiService;
+            Title = Languages.Products;
+            LoadCartNumber();
 
-
+            LoadProductsAsync();
+        }
+        public DelegateCommand ShowCartCommand => _showCartCommand ?? (_showCartCommand = new DelegateCommand(ShowCartAsync));
         public DelegateCommand SearchCommand => _searchCommand ?? (_searchCommand = new DelegateCommand(ShowProducts));
+        public int CartNumber
+        {
+            get => _cartNumber;
+            set => SetProperty(ref _cartNumber, value);
+        }
 
         public string Search
         {
@@ -45,26 +58,22 @@ namespace ForSale.XamarinApp.ViewModels
         }
 
 
-
-
-
-
-        public ProductsPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
+        public bool IsRunning
         {
-            _navigationService = navigationService;
-            _apiService = apiService;
-               Title = Languages.Products;
-            LoadCartNumber();
-
-            LoadProductsAsync();
+            get => _isRunning;
+            set => SetProperty(ref _isRunning, value);
         }
-        public DelegateCommand ShowCartCommand => _showCartCommand ?? (_showCartCommand = new DelegateCommand(ShowCartAsync));
 
-        public int CartNumber
+
+
+        public ObservableCollection<ProductItemViewModel> Products
         {
-            get => _cartNumber;
-            set => SetProperty(ref _cartNumber, value);
+            get => _products;
+            set => SetProperty(ref _products, value);
         }
+
+
+
         private void LoadCartNumber()
         {
             List<OrderDetail> orderDetails = JsonConvert.DeserializeObject<List<OrderDetail>>(Settings.OrderDetails);
@@ -82,17 +91,9 @@ namespace ForSale.XamarinApp.ViewModels
             await _navigationService.NavigateAsync(nameof(ShowCarPage));
         }
 
-        public bool IsRunning
-        {
-            get => _isRunning;
-            set => SetProperty(ref _isRunning, value);
-        }
+       
 
-        public ObservableCollection<ProductItemViewModel> Products
-        {
-            get => _products;
-            set => SetProperty(ref _products, value);
-        }
+      
 
         private async void LoadProductsAsync()
         {

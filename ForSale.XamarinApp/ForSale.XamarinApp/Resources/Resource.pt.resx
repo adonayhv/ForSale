@@ -430,4 +430,67 @@
     <value>O produto já existe no pedido. Você pode modificar o pedido em 'Ver carrinho de compras'.</value>
   </data>
 
+
+  <data name="Value" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="FinishOrder" xml:space="preserve">
+    <value>Concluir Pedido</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="ClearAllConfirm" xml:space="preserve">
+    <value>Tem certeza de que deseja excluir todos os produtos do pedido?</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Itens</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+
+
+
+  <data name="Delete" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="DeleteProductInOrderConfirm" xml:space="preserve">
+    <value>Tem certeza de que deseja excluir o produto do pedido?</value>
+  </data>
+  <data name="ModifyOrder" xml:space="preserve">
+    <value>Ordem Modificada</value>
+  </data>
+
+  <data name="FinishOrderMessage" xml:space="preserve">
+    <value>Seu pedido foi concluído com sucesso.</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Método de pagamento</value>
+  </data>
+  <data name="PaymentMethodError" xml:space="preserve">
+    <value>Você deve selecionar um método de pagamento.</value>
+  </data>
+  <data name="PaymentMethodPlaceHolder" xml:space="preserve">
+    <value>Selecione seu metodo de pagamento...</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Dinheiro (na entrega)</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Cartão de crédito</value>
+  </data>
+  <data name="DeliveryAddress" xml:space="preserve">
+    <value>Endereço para envio</value>
+  </data>
+  <data name="DeliveryAddressError" xml:space="preserve">
+    <value>Você deve inserir um endereço de entrega.</value>
+  </data>
+  <data name="DeliveryAddressPlaceHolder" xml:space="preserve">
+    <value>Insira o endereço de entrega ...</value>
+  </data>
+
 </root>

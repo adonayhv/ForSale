@@ -124,6 +124,15 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cash (on delivery).
+        /// </summary>
+        public static string Cash {
+            get {
+                return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Category.
         /// </summary>
         public static string Category {
@@ -183,6 +192,15 @@ namespace ForSale.XamarinApp.Resources {
         public static string CityPlaceHolder {
             get {
                 return ResourceManager.GetString("CityPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure to clean all the products in the order?.
+        /// </summary>
+        public static string ClearAllConfirm {
+            get {
+                return ResourceManager.GetString("ClearAllConfirm", resourceCulture);
             }
         }
         
@@ -259,6 +277,15 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Credit Card.
+        /// </summary>
+        public static string CreditCard {
+            get {
+                return ResourceManager.GetString("CreditCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Current password.
         /// </summary>
         public static string CurrentPassword {
@@ -291,6 +318,51 @@ namespace ForSale.XamarinApp.Resources {
         public static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure to delete the product in the order?.
+        /// </summary>
+        public static string DeleteProductInOrderConfirm {
+            get {
+                return ResourceManager.GetString("DeleteProductInOrderConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Delivery Address.
+        /// </summary>
+        public static string DeliveryAddress {
+            get {
+                return ResourceManager.GetString("DeliveryAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must enter the delivery Address..
+        /// </summary>
+        public static string DeliveryAddressError {
+            get {
+                return ResourceManager.GetString("DeliveryAddressError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter the delivery Address....
+        /// </summary>
+        public static string DeliveryAddressPlaceHolder {
+            get {
+                return ResourceManager.GetString("DeliveryAddressPlaceHolder", resourceCulture);
             }
         }
         
@@ -448,6 +520,24 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a FinishOrder.
+        /// </summary>
+        public static string FinishOrder {
+            get {
+                return ResourceManager.GetString("FinishOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Your order was completed successfully..
+        /// </summary>
+        public static string FinishOrderMessage {
+            get {
+                return ResourceManager.GetString("FinishOrderMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a First name.
         /// </summary>
         public static string FirstName {
@@ -507,6 +597,15 @@ namespace ForSale.XamarinApp.Resources {
         public static string IsStarred {
             get {
                 return ResourceManager.GetString("IsStarred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Items.
+        /// </summary>
+        public static string Items {
+            get {
+                return ResourceManager.GetString("Items", resourceCulture);
             }
         }
         
@@ -583,6 +682,15 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Modify Order.
+        /// </summary>
+        public static string ModifyOrder {
+            get {
+                return ResourceManager.GetString("ModifyOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Modify user.
         /// </summary>
         public static string ModifyUser {
@@ -633,6 +741,15 @@ namespace ForSale.XamarinApp.Resources {
         public static string NewQualification {
             get {
                 return ResourceManager.GetString("NewQualification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -723,6 +840,33 @@ namespace ForSale.XamarinApp.Resources {
         public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Payment Method.
+        /// </summary>
+        public static string PaymentMethod {
+            get {
+                return ResourceManager.GetString("PaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select a payment method..
+        /// </summary>
+        public static string PaymentMethodError {
+            get {
+                return ResourceManager.GetString("PaymentMethodError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select your payment method....
+        /// </summary>
+        public static string PaymentMethodPlaceHolder {
+            get {
+                return ResourceManager.GetString("PaymentMethodPlaceHolder", resourceCulture);
             }
         }
         
@@ -948,6 +1092,33 @@ namespace ForSale.XamarinApp.Resources {
         public static string ShowShoppingCar {
             get {
                 return ResourceManager.GetString("ShowShoppingCar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Value.
+        /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

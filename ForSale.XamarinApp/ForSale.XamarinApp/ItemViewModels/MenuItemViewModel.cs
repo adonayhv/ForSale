@@ -28,6 +28,7 @@ namespace ForSale.XamarinApp.ItemViewModels
             {
                 Settings.IsLogin = false;
                 Settings.Token = null;
+                Settings.OrderDetails = null;
             }
 
 
