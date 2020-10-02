@@ -1,7 +1,4 @@
-﻿
-
-using ForSale.ComunDll.Helpers;
-using ForSale.ComunDll.Models;
+﻿using ForSale.ComunDll.Helpers;
 using ForSale.ComunDll.Responses;
 using ForSale.ComunDll.Services;
 using ForSale.XamarinApp.Helpers;
