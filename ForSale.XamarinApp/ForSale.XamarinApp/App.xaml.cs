@@ -63,6 +63,7 @@ namespace ForSale.XamarinApp
 
             containerRegistry.RegisterForNavigation<FinishOrderPage, FinishOrderPageViewModel>();
 
+            containerRegistry.RegisterForNavigation<OrderPage, OrderPageViewModel>();
         }
     }
 }

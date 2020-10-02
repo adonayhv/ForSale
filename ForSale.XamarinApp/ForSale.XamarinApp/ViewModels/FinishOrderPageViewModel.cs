@@ -9,11 +9,14 @@ using ForSale.XamarinApp.Views;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
+using Stripe;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using PaymentMethod = ForSale.ComunDll.Models.PaymentMethod;
 
 namespace ForSale.XamarinApp.ViewModels
 {
@@ -21,8 +24,11 @@ namespace ForSale.XamarinApp.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
+        private readonly string _testApiKey = "pk_test_51HXuHYFms9So64Ft0EKvad1h1q1cUjtPPE2lrR8BcWnhdpPEQRAXQW2jk4o9MUYehfIkUtaDzfBWg1EoTd0prgvk00ZQPxMsrH";
+        private readonly string _testApiKeySecret = "sk_test_51HXuHYFms9So64FtMfbdY0JIg8B0YJMIduqikmSBuEh8d0hV3sLiu2blmAvQx5ieaLA1sb1kOOVsYPsUODQPX9EC00tqSAterr";
         private bool _isRunning;
         private bool _isEnabled;
+        private bool _isCreditCard;
         private decimal _totalValue;
         private int _totalItems;
         private float _totalQuantity;
@@ -31,6 +37,8 @@ namespace ForSale.XamarinApp.ViewModels
         private List<OrderDetailResponse> _orderDetails;
         private TokenResponse _token;
         private PaymentMethod _paymentMethod;
+        private Token _stripeToken;
+        private TokenService _tokenService;
         private DelegateCommand _finishOrderCommand;
 
         public FinishOrderPageViewModel(INavigationService navigationService, ICombosHelper combosHelper, IApiService apiService)
@@ -47,6 +55,12 @@ namespace ForSale.XamarinApp.ViewModels
 
         public string Remarks { get; set; }
 
+        public string CreditCard { get; set; }
+
+        public string Expiry { get; set; }
+
+        public string CVV { get; set; }
+
         public ObservableCollection<PaymentMethod> PaymentMethods
         {
             get => _paymentMethods;
@@ -56,7 +70,18 @@ namespace ForSale.XamarinApp.ViewModels
         public PaymentMethod PaymentMethod
         {
             get => _paymentMethod;
-            set => SetProperty(ref _paymentMethod, value);
+            set
+            {
+                SetProperty(ref _paymentMethod, value);
+                if (_paymentMethod.Id == 2)
+                {
+                    IsCreditCard = true;
+                }
+                else
+                {
+                    IsCreditCard = false;
+                }
+            }
         }
 
         public string DeliveryAddress
@@ -87,6 +112,12 @@ namespace ForSale.XamarinApp.ViewModels
         {
             get => _isRunning;
             set => SetProperty(ref _isRunning, value);
+        }
+
+        public bool IsCreditCard
+        {
+            get => _isCreditCard;
+            set => SetProperty(ref _isCreditCard, value);
         }
 
         public bool IsEnabled
@@ -127,6 +158,17 @@ namespace ForSale.XamarinApp.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
+            if (PaymentMethod.Id == 2)
+            {
+                bool wasPayed = await PayWithStripeAsync();
+                if (!wasPayed)
+                {
+                    IsRunning = false;
+                    IsEnabled = true;
+                    return;
+                }
+            }
+
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 IsRunning = false;
@@ -142,7 +184,7 @@ namespace ForSale.XamarinApp.ViewModels
                 PaymentMethod = ToPaymentMethod(PaymentMethod),
                 Remarks = Remarks
             };
-            //aca es el problema
+
             Response response = await _apiService.PostAsync(url, "api", "/Orders", request, _token.Token);
             IsRunning = false;
             IsEnabled = true;
@@ -159,12 +201,81 @@ namespace ForSale.XamarinApp.ViewModels
             await _navigationService.NavigateAsync($"/{nameof(OnSaleMasterDetailPage)}/NavigationPage/{nameof(ProductsPage)}");
         }
 
+        private async Task<bool> PayWithStripeAsync()
+        {
+            await CreateTokenAsync();
+            if (_stripeToken == null)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.CreditCardNoValid, Languages.Accept);
+                return false;
+            }
+
+            return await MakePaymentAsync();
+        }
+
+        public async Task<bool> MakePaymentAsync()
+        {
+            try
+            {
+                StripeConfiguration.ApiKey = _testApiKeySecret;
+                ChargeCreateOptions options = new ChargeCreateOptions
+                {
+                    Amount = (long)TotalValue * 100,
+                    Currency = "COP",
+                    Description = $"Order: {DateTime.Now:yyyy/MM/dd hh:mm}",
+                    Capture = true,
+                    ReceiptEmail = _token.User.Email,
+                    Source = _stripeToken.Id
+                };
+
+                ChargeService service = new ChargeService();
+                Charge charge = await service.CreateAsync(options);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PayNoOk, Languages.Accept);
+                return false;
+            }
+        }
+
+        public async Task<string> CreateTokenAsync()
+        {
+            try
+            {
+                StripeConfiguration.ApiKey = _testApiKey;
+                ChargeService service = new ChargeService();
+                int year = int.Parse(Expiry.Substring(0, 2));
+                int month = int.Parse(Expiry.Substring(3, 2));
+                TokenCreateOptions tokenOptions = new TokenCreateOptions
+                {
+                    Card = new TokenCardOptions
+                    {
+                        Number = CreditCard,
+                        ExpYear = year,
+                        ExpMonth = month,
+                        Cvc = CVV,
+                        Name = _token.User.FullName
+                    }
+                };
+
+                _tokenService = new TokenService();
+                _stripeToken = await _tokenService.CreateAsync(tokenOptions);
+                return _stripeToken.Id;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private ComunDll.Enums.PaymentMethod ToPaymentMethod(PaymentMethod paymentMethod)
         {
             switch (paymentMethod.Id)
             {
                 case 1: return ComunDll.Enums.PaymentMethod.Cash;
-               default: return ComunDll.Enums.PaymentMethod.CreditCard;
+                default: return ComunDll.Enums.PaymentMethod.CreditCard;
             }
         }
 
@@ -182,11 +293,32 @@ namespace ForSale.XamarinApp.ViewModels
                 return false;
             }
 
+            if (PaymentMethod.Id == 2)
+            {
+                if (string.IsNullOrEmpty(CreditCard) || CreditCard.Contains('_'))
+                {
+                    await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.CreditCardError, Languages.Accept);
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(Expiry) || Expiry.Contains('_'))
+                {
+                    await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ExpiryError, Languages.Accept);
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(CVV) || CVV.Contains('_'))
+                {
+                    await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.CVVError, Languages.Accept);
+                    return false;
+                }
+            }
+
             return true;
         }
     }
-
-
-
-
 }
+
+
+
+

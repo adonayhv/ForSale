@@ -124,6 +124,24 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure to cancel the order?.
+        /// </summary>
+        public static string CancelOrdenConfirm {
+            get {
+                return ResourceManager.GetString("CancelOrdenConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancel Order.
+        /// </summary>
+        public static string CancelOrder {
+            get {
+                return ResourceManager.GetString("CancelOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cash (on delivery).
         /// </summary>
         public static string Cash {
@@ -286,6 +304,24 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must enter your credit card number..
+        /// </summary>
+        public static string CreditCardError {
+            get {
+                return ResourceManager.GetString("CreditCardError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Credit card not valid..
+        /// </summary>
+        public static string CreditCardNoValid {
+            get {
+                return ResourceManager.GetString("CreditCardNoValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Current password.
         /// </summary>
         public static string CurrentPassword {
@@ -313,11 +349,47 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a CVV.
+        /// </summary>
+        public static string CVV {
+            get {
+                return ResourceManager.GetString("CVV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must enter the CVV for your card..
+        /// </summary>
+        public static string CVVError {
+            get {
+                return ResourceManager.GetString("CVVError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Date.
         /// </summary>
         public static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Date Confirmed.
+        /// </summary>
+        public static string DateConfirmed {
+            get {
+                return ResourceManager.GetString("DateConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Date Sent.
+        /// </summary>
+        public static string DateSent {
+            get {
+                return ResourceManager.GetString("DateSent", resourceCulture);
             }
         }
         
@@ -516,6 +588,24 @@ namespace ForSale.XamarinApp.Resources {
         public static string Error005 {
             get {
                 return ResourceManager.GetString("Error005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Expiry date format yy/mm.
+        /// </summary>
+        public static string Expiry {
+            get {
+                return ResourceManager.GetString("Expiry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must enter the expiry date for your card..
+        /// </summary>
+        public static string ExpiryError {
+            get {
+                return ResourceManager.GetString("ExpiryError", resourceCulture);
             }
         }
         
@@ -781,6 +871,33 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Order.
+        /// </summary>
+        public static string Order {
+            get {
+                return ResourceManager.GetString("Order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order Status.
+        /// </summary>
+        public static string OrderStatus {
+            get {
+                return ResourceManager.GetString("OrderStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order updated ok..
+        /// </summary>
+        public static string OrderUpdatedOk {
+            get {
+                return ResourceManager.GetString("OrderUpdatedOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Password.
         /// </summary>
         public static string Password {
@@ -867,6 +984,15 @@ namespace ForSale.XamarinApp.Resources {
         public static string PaymentMethodPlaceHolder {
             get {
                 return ResourceManager.GetString("PaymentMethodPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The payment process was not successful..
+        /// </summary>
+        public static string PayNoOk {
+            get {
+                return ResourceManager.GetString("PayNoOk", resourceCulture);
             }
         }
         
@@ -1006,6 +1132,15 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Question.
+        /// </summary>
+        public static string Question {
+            get {
+                return ResourceManager.GetString("Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Recover Password.
         /// </summary>
         public static string RecoverPassword {
@@ -1051,6 +1186,15 @@ namespace ForSale.XamarinApp.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must enter some remarks..
+        /// </summary>
+        public static string RemarksError {
+            get {
+                return ResourceManager.GetString("RemarksError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Enter your remarks....
         /// </summary>
         public static string RemarksPlaceHolder {
@@ -1065,6 +1209,15 @@ namespace ForSale.XamarinApp.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter the value to search....
+        /// </summary>
+        public static string SearchOrder {
+            get {
+                return ResourceManager.GetString("SearchOrder", resourceCulture);
             }
         }
         
@@ -1101,6 +1254,15 @@ namespace ForSale.XamarinApp.Resources {
         public static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update Remarks.
+        /// </summary>
+        public static string UpdateRemarks {
+            get {
+                return ResourceManager.GetString("UpdateRemarks", resourceCulture);
             }
         }
         
